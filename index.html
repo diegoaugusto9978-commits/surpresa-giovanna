@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Para Você ♡</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== INTRO SCREEN ===== -->
+  <div id="intro-screen">
+    <canvas id="petal-canvas"></canvas>
+    <div class="intro-content">
+      <div class="heart-pulse">♡</div>
+      <h1 class="intro-title">Para a pessoa mais especial<br>do meu mundo</h1>
+      <p class="intro-sub">Feito com todo o meu carinho, especialmente para você</p>
+      <button class="open-btn" id="openBtn">Abrir carta ♡</button>
+    </div>
+  </div>
+
+  <!-- ===== MUSIC PLAYER (hidden YouTube) ===== -->
+  <div id="music-player">
+    <div id="yt-container">
+      <iframe
+        id="yt-iframe"
+        src="https://www.youtube.com/embed/cJAB-hNbRF8?autoplay=1&loop=1&playlist=cJAB-hNbRF8&controls=0&mute=0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen
+        style="width:1px;height:1px;opacity:0;position:absolute;"
+      ></iframe>
+    </div>
+    <button id="music-btn" title="Música">
+      <span id="music-icon">♪</span>
+      <span id="music-label">Ilhabela</span>
+    </button>
+  </div>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main id="main-content" class="hidden">
+
+    <!-- HERO -->
+    <section class="hero">
+      <canvas id="hero-canvas"></canvas>
+      <div class="hero-text">
+        <span class="eyebrow">Dias dos Namorados</span>
+        <h2 class="hero-heading">Você chegou<br>e tudo ficou<br><em>mais bonito</em></h2>
+      </div>
+      <div class="scroll-hint">↓ role para baixo</div>
+    </section>
+
+    <!-- LETTER -->
+    <section class="letter-section">
+      <div class="letter-wrapper">
+        <div class="letter-stamp">✉</div>
+        <article class="letter">
+          <p class="salutation">Minha querida,</p>
+          <p>
+            Existem palavras que a gente demora a tempo encontrar, não porque não existam, mas porque
+            o que sentimos parece grande demais para caber em frases. Ainda assim, quero tentar.
+          </p>
+          <p>
+            Você chegou na minha vida com aquela leveza de quem não sabe o quanto muda tudo ao redor.
+            E mudou. O dia ficou mais cheio de cor, as coisas pequenas começaram a importar mais,
+            e eu me peguei sorrindo sem motivo — mas o motivo era você.
+          </p>
+          <p>
+            Não sei exatamente onde esse caminho vai nos levar, mas sei que quero percorrê-lo ao seu lado.
+            Com calma, com cuidado, com todo o tempo do mundo.
+          </p>
+          <p>
+            Então, hoje, com flores digitais e uma música que lembra o mar, te digo:
+            obrigado por existir. Obrigado por ser você.
+          </p>
+          <p class="signature">
+            Com carinho,<br>
+            <em>Quem pensa em você todos os dias</em> ♡
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- REASONS -->
+    <section class="reasons-section">
+      <h3 class="section-title">Razões pelas quais você é incrível</h3>
+      <div class="reasons-grid">
+        <div class="reason-card" style="--delay:0s">
+          <span class="reason-icon">✨</span>
+          <p>Seu jeito único de ver o mundo me inspira todos os dias</p>
+        </div>
+        <div class="reason-card" style="--delay:.15s">
+          <span class="reason-icon">🌸</span>
+          <p>Sua presença torna qualquer lugar mais aconchegante</p>
+        </div>
+        <div class="reason-card" style="--delay:.3s">
+          <span class="reason-icon">🌊</span>
+          <p>Você tem a calma do mar e a força das marés</p>
+        </div>
+        <div class="reason-card" style="--delay:.45s">
+          <span class="reason-icon">☀️</span>
+          <p>Sua risada é a coisa mais bonita que já ouvi</p>
+        </div>
+        <div class="reason-card" style="--delay:.6s">
+          <span class="reason-icon">🍃</span>
+          <p>Você cuida das pessoas ao redor com uma gentileza rara</p>
+        </div>
+        <div class="reason-card" style="--delay:.75s">
+          <span class="reason-icon">💫</span>
+          <p>Do seu lado, até os dias comuns viram memórias</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEMORIES (placeholder gallery) -->
+    <section class="memories-section">
+      <h3 class="section-title">Momentos que guardo no coração</h3>
+      <p class="section-sub">
+        ✏️ <em>Personalize: substitua os arquivos <code>foto1.jpg</code>, <code>foto2.jpg</code>... na pasta <code>assets/</code></em>
+      </p>
+      <div class="gallery">
+        <div class="gallery-item" style="--delay:0s">
+          <img src="assets/foto1.jpg" alt="Memória 1" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="gallery-placeholder">📷<br>foto1.jpg</div>
+        </div>
+        <div class="gallery-item" style="--delay:.2s">
+          <img src="assets/foto2.jpg" alt="Memória 2" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="gallery-placeholder">📷<br>foto2.jpg</div>
+        </div>
+        <div class="gallery-item" style="--delay:.4s">
+          <img src="assets/foto3.jpg" alt="Memória 3" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="gallery-placeholder">📷<br>foto3.jpg</div>
+        </div>
+        <div class="gallery-item gallery-item--wide" style="--delay:.6s">
+          <img src="assets/foto4.jpg" alt="Memória 4" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="gallery-placeholder">📷<br>foto4.jpg</div>
+        </div>
+        <div class="gallery-item" style="--delay:.8s">
+          <img src="assets/foto5.jpg" alt="Memória 5" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="gallery-placeholder">📷<br>foto5.jpg</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COUNTDOWN -->
+    <section class="countdown-section">
+      <h3 class="section-title">Dias que estou feliz por te conhecer</h3>
+      <div id="counter" class="counter">
+        <div class="counter-block">
+          <span class="counter-num" id="cnt-days">0</span>
+          <span class="counter-label">dias</span>
+        </div>
+        <div class="counter-block">
+          <span class="counter-num" id="cnt-hours">0</span>
+          <span class="counter-label">horas</span>
+        </div>
+        <div class="counter-block">
+          <span class="counter-num" id="cnt-minutes">0</span>
+          <span class="counter-label">minutos</span>
+        </div>
+      </div>
+      <p class="counter-note">
+        ✏️ <em>Edite a variável <code>START_DATE</code> em <code>js/main.js</code> com a data que vocês se conheceram</em>
+      </p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-heart">♡</div>
+      <p>Feito com amor, especialmente para você</p>
+    </footer>
+
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
