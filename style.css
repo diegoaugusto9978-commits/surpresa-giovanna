@@ -13,8 +13,16 @@ h1{font-size:3rem}
 #counter{font-size:2rem;margin-top:20px}
 .gallery{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;margin-top:30px}
 .photo{
-width:250px;height:250px;border:2px dashed #fff;
-display:flex;justify-content:center;align-items:center;border-radius:20px
+width:250px;
+height:250px;
+object-fit:cover;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.3);
+transition:.3s;
+}
+
+.photo:hover{
+transform:scale(1.05);
 }
 .message,.final{max-width:900px;margin:auto}
 p{line-height:1.8;margin-top:20px}
