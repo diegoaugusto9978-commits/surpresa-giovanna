@@ -343,3 +343,27 @@ body {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
+
+.message{
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+    padding: 80px 30px;
+}
+
+.message h2{
+    font-size: 3rem;
+    margin-bottom: 40px;
+}
+
+.message p{
+    font-size: 1.2rem;
+    line-height: 2;
+    margin-bottom: 25px;
+}
+
+.assinatura{
+    margin-top: 50px;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
