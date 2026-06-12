@@ -15,3 +15,11 @@ function updateCounter(){
 
 updateCounter();
 setInterval(updateCounter,60000);
+
+const musica = document.getElementById("musica");
+const btnMusic = document.getElementById("playMusic");
+
+btnMusic.addEventListener("click", () => {
+    musica.play();
+    btnMusic.innerHTML = "❤️ Tocando Ilhabela";
+});
