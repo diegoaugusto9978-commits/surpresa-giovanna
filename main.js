@@ -5,7 +5,7 @@
 // ─── CONFIGURAÇÕES – EDITE AQUI ─────────────────
 // Coloque a data em que você a conheceu (AAAA, MM-1, DD)
 // Mês começa em 0: Janeiro=0, Fevereiro=1 ... Junho=5
-const START_DATE = new Date(2024, 0, 1); // Exemplo: 1 de janeiro de 2024
+const START_DATE = new Date(2026, 6, 11); // Exemplo: 1 de janeiro de 2024
 // ────────────────────────────────────────────────
 
 /* ---- PETALS CANVAS ---- */
