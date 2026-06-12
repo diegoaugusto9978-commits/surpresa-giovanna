@@ -21,6 +21,32 @@ box-shadow:0 10px 25px rgba(0,0,0,.3);
 transition:.3s;
 }
 
+.hero{
+height:100vh;
+background:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee') center/cover;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+.hero{
+height:100vh;
+background:
+linear-gradient(
+rgba(0,0,0,0.45),
+rgba(0,0,0,0.45)
+),
+url('imagens/fundo.jpg');
+
+background-position:center;
+background-size:cover;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
 .foto2{
     margin-top: 50px;
 }
