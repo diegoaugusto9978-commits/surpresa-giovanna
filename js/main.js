@@ -188,20 +188,23 @@ function startCountdown() {
   setInterval(update, 30000);
 }
 
-/* ---- MUSIC TOGGLE ---- */
-let musicPlaying = true;
-const iframe = document.getElementById('yt-iframe');
-const musicIcon = document.getElementById('music-icon');
+const audio = document.getElementById('audio');
+let musicOn = false;
 
-document.getElementById('music-btn').addEventListener('click', () => {
-  if (musicPlaying) {
-    // pause: reload with muted flag to stop audio (YouTube iframe API workaround)
-    iframe.src = iframe.src.replace('autoplay=1', 'autoplay=0');
-    musicIcon.style.animationPlayState = 'paused';
-    musicPlaying = false;
+// toca assim que o usuário clica em "Abrir carta"
+document.getElementById('openBtn').addEventListener('click', () => {
+  audio.play().catch(() => {});
+  musicOn = true;
+});
+
+function toggleMusic() {
+  if (musicOn) {
+    audio.pause();
+    document.getElementById('music-icon').style.animationPlayState = 'paused';
   } else {
-    iframe.src = iframe.src.replace('autoplay=0', 'autoplay=1');
-    musicIcon.style.animationPlayState = 'running';
-    musicPlaying = true;
+    audio.play();
+    document.getElementById('music-icon').style.animationPlayState = 'running';
   }
+  musicOn = !musicOn;
+}
 });
