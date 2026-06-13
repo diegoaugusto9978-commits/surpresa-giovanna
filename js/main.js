@@ -41,11 +41,9 @@ document.getElementById('openBtn').addEventListener('click', () => {
   }, 800);
 });
 
-document.getElementById('openBtn').addEventListener('click', function() {
-  const audio = document.getElementById('audio');
-  audio.muted = false;
-  audio.volume = 1;
-  audio.play();
+document.getElementById('openBtn').addEventListener('click', () => {
+  // toca IMEDIATAMENTE no clique, antes de qualquer delay
+  audio.play().catch(() => {});
   musicOn = true;
 
   const intro = document.getElementById('intro-screen');
@@ -55,6 +53,7 @@ document.getElementById('openBtn').addEventListener('click', function() {
     intro.style.display = 'none';
     if (stopIntroPetals) stopIntroPetals();
     const main = document.getElementById('main-content');
+    main.classList.remove('hidden');
     main.classList.add('visible');
     initHeroCanvas();
     initScrollReveal();
