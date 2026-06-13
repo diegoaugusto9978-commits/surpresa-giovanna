@@ -2,15 +2,11 @@
 html { scroll-behavior: smooth; font-size: 16px; }
 body { font-family: 'Lato', sans-serif; background: #FFF8F0; color: #4A0020; overflow-x: hidden; }
 
-#main-content { display: none; opacity: 0; transition: opacity .7s ease; }
-#main-content.visible { display: block; opacity: 1; }
+.hidden { display: none; }
+#main-content { opacity: 0; transition: opacity .7s ease; }
+#main-content.visible { opacity: 1; }
 
-#intro-screen {
-  position: fixed; inset: 0;
-  background: linear-gradient(135deg, #4A0020 0%, #C2185B 55%, #FFAB91 100%);
-  display: flex; align-items: center; justify-content: center;
-  z-index: 9999; transition: opacity .8s ease, transform .8s ease;
-}
+#intro-screen { position: fixed; inset: 0; background: linear-gradient(135deg, #4A0020 0%, #C2185B 55%, #FFAB91 100%); display: flex; align-items: center; justify-content: center; z-index: 9999; transition: opacity .8s ease, transform .8s ease; }
 #intro-screen.fade-out { opacity: 0; transform: scale(1.04); pointer-events: none; }
 #petal-canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .intro-content { position: relative; z-index: 1; text-align: center; padding: 2rem; animation: fadeUp .9s ease both; }
@@ -36,7 +32,7 @@ body { font-family: 'Lato', sans-serif; background: #FFF8F0; color: #4A0020; ove
 .scroll-hint { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); color: rgba(255,248,240,.6); font-size: .85rem; letter-spacing: .15em; animation: bob 2s ease-in-out infinite; }
 @keyframes bob { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
 
-.letter-section, .memories-section, .countdown-section { padding: 6rem 1.5rem; max-width: 1000px; margin: 0 auto; }
+.letter-section, .countdown-section { padding: 6rem 1.5rem; max-width: 1000px; margin: 0 auto; }
 .reasons-section { padding: 6rem 1.5rem; background: linear-gradient(180deg,#FFF8F0 0%,#FDE8F0 100%); }
 .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem,4vw,2.5rem); color: #C2185B; text-align: center; margin-bottom: 1rem; }
 
@@ -55,14 +51,6 @@ body { font-family: 'Lato', sans-serif; background: #FFF8F0; color: #4A0020; ove
 .reason-card:hover { box-shadow: 0 8px 36px rgba(194,24,91,.18); transform: translateY(-4px); }
 .reason-icon { font-size: 2.2rem; display: block; margin-bottom: .8rem; }
 .reason-card p { font-size: .97rem; line-height: 1.6; color: #4A0020; font-weight: 300; }
-
-.gallery { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-top: 2.5rem; max-width: 1000px; margin-left: auto; margin-right: auto; }
-.gallery-item { border-radius: 14px; overflow: hidden; aspect-ratio: 1; background: #FDE8F0; position: relative; opacity: 0; transform: scale(.96); transition: opacity .5s var(--delay,0s) ease, transform .5s var(--delay,0s) ease; box-shadow: 0 4px 20px rgba(194,24,91,.12); }
-.gallery-item.visible { opacity: 1; transform: scale(1); }
-.gallery-item--wide { grid-column: span 2; aspect-ratio: 2/1; }
-.gallery-item img { width:100%; height:100%; object-fit:cover; display:block; }
-.gallery-placeholder { display:none; width:100%; height:100%; align-items:center; justify-content:center; flex-direction:column; gap:.4rem; color:#C2185B; font-size:.9rem; text-align:center; background:linear-gradient(135deg,#FDE8F0,#FFE4EC); }
-@media (max-width:600px) { .gallery { grid-template-columns: repeat(2,1fr); } .gallery-item--wide { grid-column: span 2; } }
 
 .counter { display:flex; justify-content:center; gap:2rem; margin:2.5rem 0 1rem; flex-wrap:wrap; }
 .counter-block { background: linear-gradient(135deg,#C2185B,#E91E8C); border-radius:16px; padding:1.8rem 2.5rem; min-width:120px; box-shadow:0 6px 28px rgba(194,24,91,.3); text-align:center; }
