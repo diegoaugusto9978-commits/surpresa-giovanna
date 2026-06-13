@@ -21,9 +21,25 @@ function initPetals(canvasId) {
 
 const stopIntroPetals = initPetals('petal-canvas');
 
-/* ---- OPEN BUTTON (abre carta + toca música) ---- */
-const audio = document.getElementById('audio');
-let musicOn = false;
+document.getElementById('openBtn').addEventListener('click', () => {
+  // toca IMEDIATAMENTE no clique, antes de qualquer delay
+  audio.play().catch(() => {});
+  musicOn = true;
+
+  const intro = document.getElementById('intro-screen');
+  intro.classList.add('fade-out');
+
+  setTimeout(() => {
+    intro.style.display = 'none';
+    if (stopIntroPetals) stopIntroPetals();
+    const main = document.getElementById('main-content');
+    main.classList.remove('hidden');
+    main.classList.add('visible');
+    initHeroCanvas();
+    initScrollReveal();
+    startCountdown();
+  }, 800);
+});
 
 document.getElementById('openBtn').addEventListener('click', () => {
   // abre a carta
