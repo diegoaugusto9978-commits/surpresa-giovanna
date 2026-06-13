@@ -1,4 +1,6 @@
-const START_DATE = new Date(2026, 6, 11); // 11 de julho de 2026
+const START_DATE = new Date(2026, 4, 11); // 11 de maio de 2026
+
+let musicOn = false;
 
 /* ---- PETALS ---- */
 function initPetals(canvasId) {
@@ -21,10 +23,12 @@ function initPetals(canvasId) {
 
 const stopIntroPetals = initPetals('petal-canvas');
 
-
-document.getElementById('openBtn').addEventListener('click', () => {
-  // toca IMEDIATAMENTE no clique, antes de qualquer delay
-  audio.play().catch(() => {});
+/* ---- OPEN BUTTON ---- */
+document.getElementById('openBtn').addEventListener('click', function() {
+  const audio = document.getElementById('audio');
+  audio.muted = false;
+  audio.volume = 1;
+  audio.play();
   musicOn = true;
 
   const intro = document.getElementById('intro-screen');
@@ -34,17 +38,11 @@ document.getElementById('openBtn').addEventListener('click', () => {
     intro.style.display = 'none';
     if (stopIntroPetals) stopIntroPetals();
     const main = document.getElementById('main-content');
-    main.classList.remove('hidden');
     main.classList.add('visible');
     initHeroCanvas();
     initScrollReveal();
     startCountdown();
   }, 800);
-});
-
-  // toca a música
-  audio.play().catch(() => {});
-  musicOn = true;
 });
 
 /* ---- HERO CANVAS ---- */
@@ -81,6 +79,7 @@ function startCountdown() {
 
 /* ---- MUSIC TOGGLE ---- */
 function toggleMusic() {
+  const audio = document.getElementById('audio');
   if (musicOn) {
     audio.pause();
     document.getElementById('music-icon').style.animationPlayState = 'paused';
