@@ -1,8 +1,6 @@
-const START_DATE = new Date(2026, 4, 11); // 11 de maio de 2026
-
+const START_DATE = new Date(2026, 4, 11);
 let musicOn = false;
 
-/* ---- PETALS ---- */
 function initPetals(canvasId) {
   const canvas = document.getElementById(canvasId);
   if (!canvas) return;
@@ -23,7 +21,6 @@ function initPetals(canvasId) {
 
 const stopIntroPetals = initPetals('petal-canvas');
 
-/* ---- OPEN BUTTON ---- */
 document.getElementById('openBtn').addEventListener('click', function() {
   const audio = document.getElementById('audio');
   audio.muted = false;
@@ -34,18 +31,20 @@ document.getElementById('openBtn').addEventListener('click', function() {
   const intro = document.getElementById('intro-screen');
   intro.classList.add('fade-out');
 
-  setTimeout(() => {
+  setTimeout(function() {
     intro.style.display = 'none';
     if (stopIntroPetals) stopIntroPetals();
     const main = document.getElementById('main-content');
-    main.classList.add('visible');
+    main.classList.remove('hidden');
+    setTimeout(function() {
+      main.classList.add('visible');
+    }, 50);
     initHeroCanvas();
     initScrollReveal();
     startCountdown();
   }, 800);
 });
 
-/* ---- HERO CANVAS ---- */
 function initHeroCanvas() {
   const canvas = document.getElementById('hero-canvas');
   if (!canvas) return;
@@ -58,18 +57,18 @@ function initHeroCanvas() {
   tick();
 }
 
-/* ---- SCROLL REVEAL ---- */
 function initScrollReveal() {
-  const els = document.querySelectorAll('.reason-card, .gallery-item');
-  const obs = new IntersectionObserver(entries=>{ entries.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);} }); },{threshold:.15});
-  els.forEach(el=>obs.observe(el));
+  const els = document.querySelectorAll('.reason-card');
+  const obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);} });
+  }, {threshold:.15});
+  els.forEach(function(el){ obs.observe(el); });
 }
 
-/* ---- COUNTDOWN ---- */
 function startCountdown() {
   function update() {
     const diff = new Date() - START_DATE;
-    if (diff < 0) { ['cnt-days','cnt-hours','cnt-minutes'].forEach(id=>document.getElementById(id).textContent='0'); return; }
+    if (diff < 0) { ['cnt-days','cnt-hours','cnt-minutes'].forEach(function(id){document.getElementById(id).textContent='0';}); return; }
     document.getElementById('cnt-days').textContent    = Math.floor(diff/86400000);
     document.getElementById('cnt-hours').textContent   = Math.floor((diff%86400000)/3600000);
     document.getElementById('cnt-minutes').textContent = Math.floor((diff%3600000)/60000);
@@ -77,7 +76,6 @@ function startCountdown() {
   update(); setInterval(update, 30000);
 }
 
-/* ---- MUSIC TOGGLE ---- */
 function toggleMusic() {
   const audio = document.getElementById('audio');
   if (musicOn) {
