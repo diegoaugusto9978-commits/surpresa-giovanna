@@ -1,4 +1,4 @@
-const START_DATE = new Date(2026, 4, 11); // 11 de maio de 2026
+const START_DATE = new Date(2026, 6, 11); // 11 de julho de 2026
 
 /* ---- PETALS ---- */
 function initPetals(canvasId) {
@@ -41,22 +41,26 @@ document.getElementById('openBtn').addEventListener('click', () => {
   }, 800);
 });
 
-document.getElementById('openBtn').addEventListener('click', () => {
-  // abre a carta
+document.getElementById('openBtn').addEventListener('click', function() {
+  const audio = document.getElementById('audio');
+  audio.muted = false;
+  audio.volume = 1;
+  audio.play();
+  musicOn = true;
+
   const intro = document.getElementById('intro-screen');
   intro.classList.add('fade-out');
+
   setTimeout(() => {
     intro.style.display = 'none';
     if (stopIntroPetals) stopIntroPetals();
     const main = document.getElementById('main-content');
-    main.classList.remove('hidden');
-    requestAnimationFrame(() => {
-      main.classList.add('visible');
-      initHeroCanvas();
-      initScrollReveal();
-      startCountdown();
-    });
+    main.classList.add('visible');
+    initHeroCanvas();
+    initScrollReveal();
+    startCountdown();
   }, 800);
+});
 
   // toca a música
   audio.play().catch(() => {});
