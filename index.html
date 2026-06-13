@@ -24,20 +24,12 @@
 
   <!-- ===== MUSIC PLAYER (hidden YouTube) ===== -->
   <div id="music-player">
-    <div id="yt-container">
-      <iframe
-        id="yt-iframe"
-        src="https://youtu.be/okLWZA33-DU?si=npWRom2rgUBEI7IJ"
-        allow="autoplay; encrypted-media"
-        allowfullscreen
-        style="width:1px;height:1px;opacity:0;position:absolute;"
-      ></iframe>
-    </div>
-    <button id="music-btn" title="Música">
-      <span id="music-icon">♪</span>
-      <span id="music-label">Ilhabela</span>
-    </button>
-  </div>
+  <audio id="audio" src="assets/musica.mp3" loop></audio>
+  <button id="music-btn" onclick="toggleMusic()">
+    <span id="music-icon">♪</span>
+    <span>Ilhabela</span>
+  </button>
+</div>
 
   <!-- ===== MAIN CONTENT ===== -->
   <main id="main-content" class="hidden">
